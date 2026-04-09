@@ -1,0 +1,19 @@
+syntax = "proto3";
+package org.example.grpcapi;
+option java_multiple_files = true;
+
+message EmptyRequest {}
+
+message StudentDto {
+  int64 id = 1;
+  string nombre = 2;
+  string email = 3;
+}
+
+message StudentListResponse {
+  repeated StudentDto students = 1;
+}
+
+service StudentService {
+  rpc GetStudents(EmptyRequest) returns (StudentListResponse);
+}
